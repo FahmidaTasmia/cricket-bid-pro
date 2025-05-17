@@ -4,7 +4,7 @@ import bannerMain from '../../assets/banner-main.png'
 
 const Banner = () => {
     return (
-        <div className='p-20 bg-[#141414] rounded-lg mt-8' style={{ backgroundImage: `url(${banner})` }} >
+        <div className='p-20 bg-[#141414] rounded-xl mt-8' style={{ backgroundImage: `url(${banner})` }} >
             <div className='flex justify-center'>
              <img src={bannerMain} alt="" />
             </div>
