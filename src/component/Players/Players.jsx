@@ -18,6 +18,9 @@ const Players = ({
       .then(data => setPlayers(data));
   }, []);
 
+  const isPlayerSelected = (id) =>
+    selectedPlayers.some((p) => p.playerId === id);
+
   const renderSelectedView = () => (
     <div className="bg-white p-4 rounded-lg shadow-md">
       <h2 className="text-lg font-bold mb-4">
@@ -30,8 +33,11 @@ const Players = ({
             className="flex items-center justify-between border p-3 rounded-md"
           >
             <div className="flex items-center gap-4">
-              <div  />
-              <img className="w-12 h-12 bg-gray-200 rounded-full object-cover" src={player.image} alt="" />
+              <img
+                className="w-12 h-12 bg-gray-200 rounded-full object-cover"
+                src={player.image}
+                alt={player.name}
+              />
               <div>
                 <h3 className="font-semibold">{player.name}</h3>
                 <p className="text-sm text-gray-500">{player.battingStyle}</p>
@@ -81,17 +87,17 @@ const Players = ({
         renderSelectedView()
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {players.map((player) => (
-            <Player
-              key={player.playerId}
-              player={player}
-              onSelect={onSelect}
-              isDisabled={
-                selectedPlayers.some((p) => p.playerId === player.playerId) ||
-                selectedCount >= 6
-              }
-            />
-          ))}
+          {players
+            .filter((player) => !isPlayerSelected(player.playerId))
+            .map((player) => (
+              <Player
+                key={player.playerId}
+                player={player}
+                onSelect={onSelect}
+                isSelected={false}
+                isDisabled={selectedCount >= 6}
+              />
+            ))}
         </div>
       )}
     </div>

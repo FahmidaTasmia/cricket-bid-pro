@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaFlag, FaUser } from 'react-icons/fa';
 
-const Player = ({ player, onSelect, isDisabled }) => {
+const Player = ({ player, onSelect, isDisabled, isSelected }) => {
   const { name, country, image, battingStyle, biddingPrice } = player;
 
   return (
@@ -29,7 +29,7 @@ const Player = ({ player, onSelect, isDisabled }) => {
           }`}
           disabled={isDisabled}
         >
-          Choose Player
+          {isSelected ? 'Selected' : 'Choose Player'}
         </button>
       </div>
     </div>

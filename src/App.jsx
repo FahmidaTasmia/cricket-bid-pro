@@ -26,6 +26,11 @@ function App() {
       return;
     }
 
+    if (selectedPlayers.length >= 6) {
+      toast.error("You already selected 6 players!");
+      return;
+    }
+
     if (coins < player.biddingPrice) {
       toast.error(`Not enough coins! You need ${player.biddingPrice} coins.`);
       return;
