@@ -62,7 +62,7 @@ const Players = ({
   );
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 md:mb-20 lg:mb-40">
       {/* Top section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center my-8 gap-4">
         <h2 className="text-xl sm:text-2xl font-bold">Available Players</h2>
